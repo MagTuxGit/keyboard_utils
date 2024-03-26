@@ -25,6 +25,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
+    namespace "br.com.keyboard_utils"
+
     compileSdkVersion 33
 
     sourceSets {
