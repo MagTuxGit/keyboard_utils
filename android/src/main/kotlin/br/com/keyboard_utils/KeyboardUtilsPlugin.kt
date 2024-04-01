@@ -40,7 +40,7 @@ class KeyboardUtilsPlugin : FlutterPlugin, ActivityAware, EventChannel.StreamHan
         this.activity = activity
 
         if (this.activity != null) {
-            println("显示 KeyboardUtilsPlugin 初始化")
+            //println("显示 KeyboardUtilsPlugin 初始化")
             keyboardUtil?.unregisterKeyboardHeightListener()
             keyboardUtil = KeyboardNewUtils()
         }
@@ -94,13 +94,13 @@ class KeyboardUtilsPlugin : FlutterPlugin, ActivityAware, EventChannel.StreamHan
     }
 
     override fun onListen(arguments: Any?, events: EventChannel.EventSink?) {
-        println("显示 原生 onListen")
+        //println("显示 原生 onListen")
         activity?.apply {
             keyboardUtil?.registerKeyboardHeightListener(
                 activity!!,
                 object : KeyboardHeightListener {
                     override fun open(height: Float) {
-                        println("显示 原生软键盘高度 height=$height")
+                        //println("显示 原生软键盘高度 height=$height")
                         val resultJSON = KeyboardOptions(isKeyboardOpen = true, height = height)
                         events?.success(resultJSON.toJson())
                     }
